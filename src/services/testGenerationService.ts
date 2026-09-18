@@ -23,7 +23,8 @@ export class TestGenerationService {
       throw new Error("Requirement is required");
     }
 
-    const result = await this.agent.generate(requirement) as GeneratedResult;
+    const generationId = createGenerationId();
+    const result = await this.agent.generate(requirement, generationId) as GeneratedResult;
 
     if (
       !Array.isArray(result.testCases) ||
@@ -40,7 +41,7 @@ export class TestGenerationService {
       .slice(0,  sixtyCharacters);
     const outputDirectory = path.resolve("generated");
     const testsDirectory = path.resolve("tests");
-    const baseName = slug || "generated-test";
+    const baseName = `${slug || "generated-test"}-${generationId}`;
 
     await fs.mkdir(outputDirectory, { recursive: true });
     await fs.mkdir(testsDirectory, { recursive: true });
@@ -58,6 +59,7 @@ export class TestGenerationService {
     );
 
     return {
+      generationId,
       ...result,
       playwrightScript,
       artifacts: {
@@ -69,3 +71,12 @@ export class TestGenerationService {
 }
 
 const sixtyCharacters = 60;
+
+function createGenerationId(): string {
+  const timestamp = new Date()
+    .toISOString()
+    .replace(/[-:TZ.]/g, "")
+    .slice(0, 14);
+  const randomPart = Math.random().toString(36).slice(2, 8);
+  return `${timestamp}-${randomPart}`;
+}

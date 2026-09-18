@@ -20,7 +20,10 @@ export class OllamaClient {
             }
           ],
           stream: false,
-          format: "json"
+          format: "json",
+          options: {
+            temperature: 0.8
+          }
         })
       }
     );

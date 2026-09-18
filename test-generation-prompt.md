@@ -8,6 +8,10 @@ Analyze the software requirement below and produce comprehensive test coverage:
 {{REQUIREMENT}}
 </requirement>
 
+This is generation {{GENERATION_TOKEN}}. Generate a fresh variation for this
+request. Do not reuse a previous test-case set: vary scenario data, edge cases,
+or validation coverage while still satisfying the requirement.
+
 Include positive, negative, boundary, validation, and error-handling scenarios.
 
 Return one JSON object with exactly these top-level fields:

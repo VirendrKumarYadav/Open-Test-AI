@@ -5,9 +5,9 @@ export class TestCaseAgent {
 
   private ollama = new OllamaClient();
 
-  async generate(requirement: string) {
+  async generate(requirement: string, generationToken: string) {
 
-    const prompt = await testCasePrompt(requirement);
+    const prompt = await testCasePrompt(requirement, generationToken);
 
     const response = await this.ollama.chat(prompt);
 

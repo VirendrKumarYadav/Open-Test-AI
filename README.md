@@ -10,7 +10,8 @@ an HTTP API, and includes a browser UI for creating and reviewing the results.
 2. Generates positive, negative, boundary, validation, and error-handling test
    cases.
 3. Creates a Playwright TypeScript script from the generated test cases.
-4. Saves both artifacts to disk and returns them in the API response.
+4. Saves both artifacts to a unique, timestamped path and returns them in the
+   API response.
 5. Provides a healing endpoint for a failing Playwright script.
 
 ## End-to-end flow
@@ -83,6 +84,12 @@ check is available at [http://localhost:3000/health](http://localhost:3000/healt
 5. Review or copy the generated Playwright script in the **Playwright automation
    script** panel.
 6. Run the saved script with the Playwright test command described below.
+
+Every click sends a new request to Ollama with a unique generation token and a
+nonzero sampling temperature. This intentionally creates a fresh variation
+instead of returning or overwriting a previous test-case set. Each response
+also gets a unique `generationId`, so repeated requests for the same
+requirement produce separate files.
 
 ### UI screenshots
 
@@ -161,11 +168,12 @@ To type-check the service:
 npx tsc --noEmit
 ```
 
-Generated artifacts are written to:
+Generated artifacts are written to filenames containing the requirement slug,
+a unique timestamp, and a random suffix:
 
 ```text
-generated/<requirement-slug>.json
-tests/<requirement-slug>.spec.ts
+generated/<requirement-slug>-<generation-id>.json
+tests/<requirement-slug>-<generation-id>.spec.ts
 ```
 
 ## Healing a failing test
