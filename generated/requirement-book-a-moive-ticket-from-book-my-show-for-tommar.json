@@ -1,0 +1,82 @@
+{
+  "testCases": [
+    {
+      "id": "TC001",
+      "title": "Book Movie Ticket",
+      "type": "positive",
+      "priority": "medium",
+      "steps": [
+        "1. Open BookMyShow website",
+        "2. Click on Movies tab",
+        "3. Select any movie",
+        "4. Select showtime 2pm tomorrow",
+        "5. Click on Book Now button"
+      ],
+      "expectedResult": "Movie ticket booked successfully"
+    },
+    {
+      "id": "TC002",
+      "title": "Invalid Movie",
+      "type": "negative",
+      "priority": "low",
+      "steps": [
+        "1. Open BookMyShow website",
+        "2. Click on Movies tab",
+        "3. Search for a non-existent movie",
+        "4. Select showtime 2pm tomorrow",
+        "5. Click on Book Now button"
+      ],
+      "expectedResult": "Error message for non-existent movie"
+    },
+    {
+      "id": "TC003",
+      "title": "Invalid Showtime",
+      "type": "negative",
+      "priority": "low",
+      "steps": [
+        "1. Open BookMyShow website",
+        "2. Click on Movies tab",
+        "3. Select a movie",
+        "4. Search for a showtime that does not exist",
+        "5. Click on Book Now button"
+      ],
+      "expectedResult": "Error message for invalid showtime"
+    },
+    {
+      "id": "TC004",
+      "title": "Invalid Date",
+      "type": "negative",
+      "priority": "low",
+      "steps": [
+        "1. Open BookMyShow website",
+        "2. Click on Movies tab",
+        "3. Select a movie",
+        "4. Select a showtime with an invalid date",
+        "5. Click on Book Now button"
+      ],
+      "expectedResult": "Error message for invalid date"
+    },
+    {
+      "id": "TC005",
+      "title": "User Session Expired",
+      "type": "negative",
+      "priority": "medium",
+      "steps": [
+        "1. Open BookMyShow website",
+        "2. Close browser session",
+        "3. Try to book movie ticket again",
+        "4. Click on Book Now button"
+      ],
+      "expectedResult": "Error message for user session expired"
+    }
+  ],
+  "automationPlan": {
+    "framework": "Playwright",
+    "language": "TypeScript",
+    "steps": [
+      "Open the application",
+      "Complete the user actions",
+      "Verify the result"
+    ]
+  }
+}

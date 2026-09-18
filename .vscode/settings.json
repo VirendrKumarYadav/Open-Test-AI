@@ -1,0 +1,24 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^node -e \"const fs=require\\('fs'\\); const script=fs\\.readFileSync\\('tests/user-should-be-able-to-search-flights-from-delhi-to-mumbai-f\\.spec\\.ts','utf8'\\); const failure=fs\\.readFileSync\\('/var/folders/wc/c2v9qv9s0d78hw4l8_fgy8zm0000gn/T/1789630026971-copilot-tool-output-90176-a38619a9-0d09-45c4-a4ef-471acb73ad7e\\.txt','utf8'\\); fetch\\('http://127\\.0\\.0\\.1:3000/api/ai/heal-test',\\{method:'POST',headers:\\{'Content-Type':'application/json'\\},body:JSON\\.stringify\\(\\{script,failure,context:'Target application: https://www\\.makemytrip\\.com/flights/\\. Replace placeholder selectors with selectors that match the live page\\.'\\}\\)\\}\\)\\.then\\(async r=>\\{const text=await r\\.text\\(\\); console\\.log\\(text\\); if\\(!r\\.ok\\) process\\.exit\\(1\\)\\}\\)\\.catch\\(e=>\\{console\\.error\\(e\\);process\\.exit\\(1\\)\\}\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^npx playwright test tests/healed-test\\.spec\\.ts --reporter=line --grep 'selected departure date\\$'$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^npx playwright test tests/user-should-be-able-to-search-flights-from-delhi-to-mumbai-f\\.spec\\.ts --reporter=line$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^node -e \"const fs=require\\('fs'\\); const script=fs\\.readFileSync\\('tests/user-should-be-able-to-search-flights-from-delhi-to-mumbai-f\\.spec\\.ts','utf8'\\); const failure=fs\\.readFileSync\\('/var/folders/wc/c2v9qv9s0d78hw4l8_fgy8zm0000gn/T/1789630952724-copilot-tool-output-90176-c336ce09-8ed0-4cf2-9816-c058bc74aa7c\\.txt','utf8'\\); fetch\\('http://127\\.0\\.0\\.1:3000/api/ai/heal-test',\\{method:'POST',headers:\\{'Content-Type':'application/json'\\},body:JSON\\.stringify\\(\\{script,failure,context:'Target application URL: https://www\\.ixigo\\.com/\\. Find selectors that match the live Ixigo flight-search UI\\. Preserve separate tests and use robust accessible locators\\.'\\}\\)\\}\\)\\.then\\(async r=>\\{const text=await r\\.text\\(\\); console\\.log\\(text\\); if\\(!r\\.ok\\) process\\.exit\\(1\\)\\}\\)\\.catch\\(e=>\\{console\\.error\\(e\\);process\\.exit\\(1\\)\\}\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^npx playwright test tests/healed-test\\.spec\\.ts --reporter=line$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

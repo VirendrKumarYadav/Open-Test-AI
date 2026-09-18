@@ -1,0 +1,83 @@
+{
+  "testCases": [
+    {
+      "id": "TC001",
+      "title": "Search flights from Delhi to Mumbai for a selected departure date",
+      "type": "positive",
+      "priority": "high",
+      "steps": [
+        "Open the application",
+        "Select flight from Delhi to Mumbai",
+        "Enter departure date",
+        "Submit search form",
+        "Verify search results"
+      ],
+      "expectedResult": "Search results displayed for the selected departure date"
+    },
+    {
+      "id": "TC002",
+      "title": "Invalid departure date",
+      "type": "negative",
+      "priority": "high",
+      "steps": [
+        "Open the application",
+        "Select flight from Delhi to Mumbai",
+        "Enter invalid departure date",
+        "Submit search form",
+        "Verify error message"
+      ],
+      "expectedResult": "Error message displayed for invalid departure date"
+    },
+    {
+      "id": "TC003",
+      "title": "No flights available on selected departure date",
+      "type": "negative",
+      "priority": "high",
+      "steps": [
+        "Open the application",
+        "Select flight from Delhi to Mumbai",
+        "Enter departure date",
+        "Submit search form",
+        "Verify no search results"
+      ],
+      "expectedResult": "No search results displayed"
+    },
+    {
+      "id": "TC004",
+      "title": "Invalid departure date format",
+      "type": "negative",
+      "priority": "high",
+      "steps": [
+        "Open the application",
+        "Select flight from Delhi to Mumbai",
+        "Enter invalid departure date format",
+        "Submit search form",
+        "Verify error message"
+      ],
+      "expectedResult": "Error message displayed for invalid departure date format"
+    },
+    {
+      "id": "TC005",
+      "title": "Blank departure date",
+      "type": "negative",
+      "priority": "high",
+      "steps": [
+        "Open the application",
+        "Select flight from Delhi to Mumbai",
+        "Enter blank departure date",
+        "Submit search form",
+        "Verify error message"
+      ],
+      "expectedResult": "Error message displayed for blank departure date"
+    }
+  ],
+  "automationPlan": {
+    "framework": "Playwright",
+    "language": "TypeScript",
+    "steps": [
+      "Open the application",
+      "Complete the user actions",
+      "Verify the result"
+    ]
+  }
+}

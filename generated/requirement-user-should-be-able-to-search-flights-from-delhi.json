@@ -1,0 +1,111 @@
+{
+  "testCases": [
+    {
+      "id": "TC001",
+      "title": "User can search flights from Delhi to Mumbai for a selected departure date",
+      "type": "positive",
+      "priority": "high",
+      "steps": [
+        "Open the application",
+        "Enter valid source and destination (Delhi and Mumbai)",
+        "Select a valid departure date (today or tomorrow)",
+        "Click the search button",
+        "Verify that search results are displayed with flight details"
+      ],
+      "expectedResult": "Search results are displayed with flight details"
+    },
+    {
+      "id": "TC002",
+      "title": "No flights available for a selected departure date",
+      "type": "negative",
+      "priority": "high",
+      "steps": [
+        "Open the application",
+        "Enter invalid source or destination",
+        "Select a past departure date",
+        "Click the search button",
+        "Verify that a clear message is displayed indicating no flights are available"
+      ],
+      "expectedResult": "Clear message is displayed indicating no flights are available"
+    },
+    {
+      "id": "TC003",
+      "title": "No flights available for a selected departure date - Edge case (same day departure)",
+      "type": "negative",
+      "priority": "high",
+      "steps": [
+        "Open the application",
+        "Enter valid source and destination",
+        "Select the same day departure",
+        "Click the search button",
+        "Verify that a clear message is displayed indicating no flights are available"
+      ],
+      "expectedResult": "Clear message is displayed indicating no flights are available"
+    },
+    {
+      "id": "TC004",
+      "title": "User can search flights from Delhi to Mumbai for a selected departure date with no filters applied",
+      "type": "positive",
+      "priority": "high",
+      "steps": [
+        "Open the application",
+        "Enter valid source and destination",
+        "Select a valid departure date",
+        "Click the search button without applying any filters",
+        "Verify that search results are displayed with flight details"
+      ],
+      "expectedResult": "Search results are displayed with flight details"
+    },
+    {
+      "id": "TC005",
+      "title": "User can search flights from Delhi to Mumbai for a selected departure date with a specific filter applied",
+      "type": "positive",
+      "priority": "high",
+      "steps": [
+        "Open the application",
+        "Enter valid source and destination",
+        "Select a valid departure date",
+        "Apply a specific filter (e.g. budget, airline)",
+        "Click the search button",
+        "Verify that search results are displayed with flight details"
+      ],
+      "expectedResult": "Search results are displayed with filtered flight details"
+    },
+    {
+      "id": "TC006",
+      "title": "Validation error for invalid input",
+      "type": "validation",
+      "priority": "medium",
+      "steps": [
+        "Open the application",
+        "Enter invalid source or destination",
+        "Select an invalid departure date",
+        "Click the search button",
+        "Verify that a validation error is displayed"
+      ],
+      "expectedResult": "Validation error is displayed"
+    },
+    {
+      "id": "TC007",
+      "title": "Error handling for network issue",
+      "type": "error-handling",
+      "priority": "medium",
+      "steps": [
+        "Open the application",
+        "Click the search button",
+        "Simulate a network error",
+        "Verify that an error message is displayed"
+      ],
+      "expectedResult": "Error message is displayed"
+    }
+  ],
+  "automationPlan": {
+    "framework": "Playwright",
+    "language": "TypeScript",
+    "steps": [
+      "Open the application",
+      "Complete the user actions",
+      "Verify the result"
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "testCases": [
+    {
+      "id": "TC001",
+      "title": "Search for cloud testing",
+      "type": "positive",
+      "priority": "high",
+      "steps": [
+        "Visit https://www.orangemantra.com/",
+        "Click on Search",
+        "Enter 'cloud' in search input",
+        "Click on Cloud Testing",
+        "Click on Request a Call"
+      ],
+      "expectedResult": "Cloud Testing page is displayed"
+    },
+    {
+      "id": "TC002",
+      "title": "Invalid search query",
+      "type": "negative",
+      "priority": "high",
+      "steps": [
+        "Visit https://www.orangemantra.com/",
+        "Click on Search",
+        "Enter 'invalid' in search input",
+        "Click on Cloud Testing"
+      ],
+      "expectedResult": "Error message is displayed"
+    },
+    {
+      "id": "TC003",
+      "title": "Cloud Testing page loading issue",
+      "type": "negative",
+      "priority": "medium",
+      "steps": [
+        "Visit https://www.orangemantra.com/",
+        "Click on Search",
+        "Enter 'cloud' in search input",
+        "Click on Cloud Testing",
+        "Wait for 10 seconds for page to load"
+      ],
+      "expectedResult": "Cloud Testing page is loaded"
+    },
+    {
+      "id": "TC004",
+      "title": "Cloud Testing request a call",
+      "type": "positive",
+      "priority": "medium",
+      "steps": [
+        "Visit https://www.orangemantra.com/",
+        "Click on Search",
+        "Enter 'cloud' in search input",
+        "Click on Cloud Testing",
+        "Click on Request a Call",
+        "Verify phone number is displayed"
+      ],
+      "expectedResult": "Request a call page is displayed with phone number"
+    },
+    {
+      "id": "TC005",
+      "title": "Empty search input",
+      "type": "negative",
+      "priority": "low",
+      "steps": [
+        "Visit https://www.orangemantra.com/",
+        "Click on Search",
+        "Enter empty string in search input",
+        "Click on Cloud Testing"
+      ],
+      "expectedResult": "Error message is displayed"
+    }
+  ],
+  "automationPlan": {
+    "framework": "Playwright",
+    "language": "TypeScript",
+    "steps": [
+      "Open the application",
+      "Complete the user actions",
+      "Verify the result"
+    ]
+  },
+  "playwrightScript": "test.ts"
+}
